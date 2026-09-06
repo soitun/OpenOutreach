@@ -81,6 +81,27 @@ no daemon manager, no container.
 
 ---
 
+## 🤖 Use it from Claude Code
+
+This repo ships a **Claude Code plugin**, so you can pull leads without leaving your agent session:
+
+```
+/plugin marketplace add eracle/OpenOutreach
+/plugin install openoutreach@openoutreach
+```
+
+The skill (`skills/find-leads/SKILL.md`) teaches Claude when to run `find`, which flags cost credits
+and which cannot, how to read the CSV on stdout, and what each `error: <type>` means. It never buys
+an address you did not ask for, never sends without being asked, and never accepts the legal notice
+for you. Prefer skills to plugins? Copy `skills/find-leads/` into `~/.claude/skills/` instead.
+
+**Not on Claude Code?** The skill is a markdown file describing the CLI's own contract — nothing
+Claude-specific is required to use `openoutreach` itself. Codex, Cursor, or any other agent can call
+the same `openoutreach find` / `send` / `run` / `status` commands directly; point your agent's
+instructions file at `skills/find-leads/SKILL.md` and it reads the same rules.
+
+---
+
 ## 🧩 Three packages, one product
 
 OpenOutreach is an **orchestrator**. The finding and the sending are two standalone programs, and
@@ -201,22 +222,6 @@ machine, and you bring your own provider keys.
 relies on — the lead-data provider — is surfaced during onboarding through an affiliate link. Sign
 up through it and the project may earn a commission, **at no markup to you**. Sign up any other way
 if you prefer. See the **[Legal Notice](LEGAL_NOTICE.md)** (§4).
-
----
-
-### 🤖 Use it from Claude Code
-
-This repo ships a **Claude Code plugin**, so you can pull leads without leaving your agent session:
-
-```
-/plugin marketplace add eracle/OpenOutreach
-/plugin install openoutreach@openoutreach
-```
-
-The skill (`skills/find-leads/SKILL.md`) teaches Claude when to run `find`, which flags cost credits
-and which cannot, how to read the CSV on stdout, and what each `error: <type>` means. It never buys
-an address you did not ask for, never sends without being asked, and never accepts the legal notice
-for you. Prefer skills to plugins? Copy `skills/find-leads/` into `~/.claude/skills/` instead.
 
 ---
 
